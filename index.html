@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drevené brikety | Kúrenie, ktoré sa oplatí</title>
+<meta name="description" content="Drevené brikety z tvrdého dreva. Cenník, informácie a kontakt.">
+<style>
+:root{
+  --ash:#2a2622; --ash2:#3b3631; --ember:#e2531f; --ember-d:#b93f13;
+  --sawdust:#d9c3a0; --bg:#f3f2ef; --ink:#221f1c; --muted:#6b645c; --line:#ddd9d2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+/* top bar */
+header{position:absolute;top:0;left:0;right:0;z-index:5}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-weight:800;font-size:1.15rem;color:#fff;text-decoration:none;letter-spacing:.01em}
+.logo i{display:inline-block;width:18px;height:18px;border-radius:50%;border:5px solid var(--ember);vertical-align:-2px;margin-right:8px}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{color:#e9e2d8;text-decoration:none;font-size:.95rem}
+nav ul a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
+
+/* hero: stack of briquette cross-sections */
+.hero{
+  background:
+    radial-gradient(circle at center,var(--ash) 0 7px,transparent 8px) 0 0/ 0 0,
+    var(--ash);
+  position:relative;color:#fff;padding:150px 0 90px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;opacity:.9;
+  background:
+    radial-gradient(circle at center,var(--ash) 0 9px,transparent 10px),
+    radial-gradient(circle at center,#5a4a3a 0 34px,#4a3d31 35px 38px,transparent 39px);
+  background-size:84px 84px,84px 84px;
+  background-position:0 0,0 0;
+  -webkit-mask-image:linear-gradient(100deg,transparent 35%,#000 100%);
+          mask-image:linear-gradient(100deg,transparent 35%,#000 100%);
+}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.6rem);line-height:1.04;font-weight:850;letter-spacing:-.02em;max-width:11em}
+.hero p{margin-top:22px;max-width:30em;font-size:1.15rem;color:#e3dacd}
+.btns{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:6px;font-weight:700;text-decoration:none;border:2px solid var(--ember);background:var(--ember);color:#fff}
+.btn:hover{background:var(--ember-d);border-color:var(--ember-d)}
+.btn.ghost{background:transparent;border-color:#8d8378;color:#fff}
+.btn.ghost:hover{border-color:#fff;background:transparent}
+.heat{margin-top:56px;display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid #4d453d;padding-top:22px}
+.heat div{font-size:.95rem;color:#cfc5b7}
+.heat b{display:block;font-size:1.5rem;color:#fff;font-weight:800}
+
+section{padding:84px 0}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.15;letter-spacing:-.01em;font-weight:800;margin-bottom:14px}
+.lead{color:var(--muted);max-width:36em;margin-bottom:40px}
+
+/* info */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:3px solid var(--ink)}
+.fact{padding:26px 26px 26px 0}
+.fact+.fact{padding-left:26px;border-left:1px solid var(--line)}
+.fact h3{font-size:1.1rem;margin-bottom:8px}
+.fact p{color:var(--muted);font-size:.97rem}
+
+/* price */
+#cennik{background:var(--sawdust)}
+#cennik .lead{color:#4d4338}
+.table{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.row{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:12px;padding:20px 26px;align-items:center;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row.head{background:var(--ash);color:#e9e2d8;font-size:.9rem;padding:14px 26px}
+.row strong{font-size:1.05rem}
+.row small{display:block;color:var(--muted);font-size:.88rem}
+.price{font-weight:800;font-size:1.3rem;color:var(--ember-d)}
+.note{margin-top:18px;font-size:.93rem;color:#4d4338;max-width:46em}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:210px;gap:12px}
+.gallery figure{position:relative;border-radius:6px;overflow:hidden;background:var(--ash2)}
+.gallery figure:first-child{grid-column:span 2;grid-row:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery figcaption{position:absolute;left:0;bottom:0;right:0;padding:26px 14px 10px;color:#fff;font-size:.9rem;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#a99d8f;font-size:.9rem;padding:14px;
+  background:radial-gradient(circle at center,var(--ash2) 0 6px,transparent 7px),radial-gradient(circle at center,#4e4237 0 26px,transparent 27px);background-size:64px 64px}
+.ph span{background:var(--ash);padding:6px 10px;border-radius:4px}
+
+/* contact */
+#kontakt{background:var(--ash);color:#fff}
+#kontakt .lead{color:#cfc5b7}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.contact dl div{padding:16px 0;border-bottom:1px solid #4d453d}
+.contact dt{font-size:.88rem;color:#b3a898}
+.contact dd{font-size:1.2rem;font-weight:700}
+.contact dd a{text-decoration:none}
+.contact dd a:hover{color:var(--ember)}
+.big-phone{display:inline-block;margin-top:6px;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:850;text-decoration:none;color:#fff;border-bottom:4px solid var(--ember)}
+.big-phone:hover{color:var(--ember)}
+footer{background:#1d1a17;color:#9a9086;font-size:.88rem;padding:22px 0}
+
+@media (max-width:760px){
+  nav ul{display:none}
+  .hero{padding:110px 0 64px}
+  section{padding:60px 0}
+  .fact+.fact{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .fact{padding-right:0}
+  .row{grid-template-columns:1fr auto;padding:16px 18px}
+  .row.head{display:none}
+  .row .unit{grid-column:1;order:3;font-size:.88rem;color:var(--muted)}
+  .row .price{grid-row:1;grid-column:2}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .gallery figure:first-child{grid-column:span 2;grid-row:span 1;}
+  .contact{grid-template-columns:1fr;gap:34px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Hlavné menu">
+      <a class="logo" href="#top"><i></i>Brikety NÁZOV</a>
+      <ul>
+        <li><a href="#info">O briketách</a></li>
+        <li><a href="#cennik">Cenník</a></li>
+        <li><a href="#fotky">Fotky</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Drevené brikety na kúrenie</h1>
+      <p>Suché, lisované z tvrdého dreva, bez chémie. Horia dlho, hrejú rovnomerne a po vykúrení zostane len málo popola.</p>
+      <div class="btns">
+        <a class="btn" href="#kontakt">Objednať</a>
+        <a class="btn ghost" href="#cennik">Pozrieť cenník</a>
+      </div>
+      <div class="heat">
+        <div><b>do 8 %</b>vlhkosť</div>
+        <div><b>cca 17 MJ/kg</b>výhrevnosť</div>
+        <div><b>1 %</b>popol</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="info">
+    <div class="wrap">
+      <h2>Prečo kúriť briketami</h2>
+      <p class="lead">Brikety sa lisujú z pilín a hoblin bez lepidiel. Držia pokope vďaka tlaku a prirodzenému lepidlu v dreve.</p>
+      <div class="facts">
+        <div class="fact"><h3>Vysoká výhrevnosť</h3><p>Brikety sú oveľa suchšie ako bežné polená, takže z nich dostanete viac tepla.</p></div>
+        <div class="fact"><h3>Málo popola</h3><p>Po vykúrení zostane minimum popola. Kachle a komín sa čistia menej často.</p></div>
+        <div class="fact"><h3>Čisté a ľahko skladovateľné</h3><p>Balené v paletách, bez kôry a nečistôt. Zaberajú menej miesta ako drevo.</p></div>
+        <div class="fact"><h3>Vhodné do kozubov a kachlí</h3><p>Použijete ich v kozube, krbovej vložke, kotle na tuhé palivo aj v pecke.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cennik">
+    <div class="wrap">
+      <h2>Cenník</h2>
+      <p class="lead">Ceny sú uvedené s DPH. Pri väčšom odbere sa radi dohodneme na špeciálnej cene.</p>
+      <div class="table" role="table" aria-label="Cenník">
+        <div class="row head" role="row"><span>Produkt</span><span>Balenie</span><span>Cena</span></div>
+        <div class="row" role="row">
+          <span><strong>Brikety z tvrdého dreva</strong><small>buk / dub, valcové s dierou</small></span>
+          <span class="unit">10 kg balík</span>
+          <span class="price">0,00 €</span>
+        </div>
+        <div class="row" role="row">
+          <span><strong>Brikety z tvrdého dreva</strong><small>paleta, 96 balíkov</small></span>
+          <span class="unit">960 kg paleta</span>
+          <span class="price">000 €</span>
+        </div>
+        <div class="row" role="row">
+          <span><strong>Brikety z mäkkého dreva</strong><small>smrek / borovica</small></span>
+          <span class="unit">paleta, 960 kg</span>
+          <span class="price">000 €</span>
+        </div>
+        <div class="row" role="row">
+          <span><strong>Doprava</strong><small>do 30 km od nás</small></span>
+          <span class="unit">za objednávku</span>
+          <span class="price">0 €</span>
+        </div>
+      </div>
+      <p class="note">Platba v hotovosti pri prevzatí alebo prevodom na účet. Pre presnú cenu dopravy nám zavolajte.</p>
+    </div>
+  </section>
+
+  <section id="fotky">
+    <div class="wrap">
+      <h2>Fotky</h2>
+      <p class="lead">Takto vyzerajú naše brikety a sklad.</p>
+      <div class="gallery">
+        <figure>
+          <!-- Nahraďte: <img src="fotka1.jpg" alt="Brikety na palete"> a zmažte riadok s triedou ph -->
+          <div class="ph"><span>Fotka 1: paleta s briketami</span></div>
+          <figcaption>Paleta pripravená na odber</figcaption>
+        </figure>
+        <figure><div class="ph"><span>Fotka 2</span></div></figure>
+        <figure><div class="ph"><span>Fotka 3</span></div></figure>
+        <figure><div class="ph"><span>Fotka 4</span></div></figure>
+        <figure><div class="ph"><span>Fotka 5</span></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap contact">
+      <div>
+        <h2>Kontakt</h2>
+        <p class="lead">Zavolajte alebo napíšte, dohodneme množstvo, termín a dopravu.</p>
+        <a class="big-phone" href="tel:+421900000000">+421 900 000 000</a>
+      </div>
+      <dl>
+        <div><dt>E-mail</dt><dd><a href="mailto:info@priklad.sk">info@priklad.sk</a></dd></div>
+        <div><dt>Adresa a odber</dt><dd>Ulica 123, 000 00 Mesto</dd></div>
+        <div><dt>Otváracie hodiny</dt><dd>Po–Pi 8:00–16:00, So dohodou</dd></div>
+        <div><dt>Fakturačné údaje</dt><dd>Meno firmy, IČO: 00000000</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Brikety NÁZOV. Všetky práva vyhradené.</div>
+</footer>
+
+</body>
+</html>
